@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.control.Button?>
+<?import java.net.URL?>
+<AnchorPane fx:id="gui" prefHeight="400" prefWidth="478"
+            xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="com.example.message_client.HelloController">
+    <children>
+        <Button fx:id="send_btn" layoutX="399.0" layoutY="350"
+                prefHeight="25" prefWidth="62.0"
+                text="send"/>
+        <TextField fx:id="text_message" layoutX="30" layoutY="350"
+                   prefHeight="25"  prefWidth="361"/>
+        <ScrollPane fx:id="sp" layoutX="30" layoutY="70"
+                    prefHeight="250" prefWidth="423" fitToWidth="true">
+            <content>
+                <VBox fx:id="vbox_messages" prefHeight="248" prefWidth="412">
+
+                </VBox>
+            </content>
+        </ScrollPane>
+        <Label layoutX="190" layoutY="26" text="Client">
+
+        </Label>
+    </children>
+    <stylesheets>
+        <URL value="@style-view.css" />
+    </stylesheets>
+</AnchorPane>

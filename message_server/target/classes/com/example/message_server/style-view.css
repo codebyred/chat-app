@@ -1,0 +1,27 @@
+#gui{
+
+}
+#send_btn{
+    -fx-text-fill: white;
+    -fx-font-family: "Arial Narrow";
+    -fx-font-weight: bold;
+    -fx-background-color: blue;
+    -fx-border-radius:25px;
+    -fx-background-radius:25px;
+}
+#send_btn:hover{
+    -fx-background-color:#6666FF;
+}
+#send_btn:pressed{
+    -fx-background-color:#00ff80;
+}
+#text_message{
+    -fx-border-radius:25px;
+    -fx-background-radius:25px;
+}
+#sp:vertical .thumb{
+    -fx-background-color: black;
+}
+#sp{
+    -fx-background-color:transparent;
+}
