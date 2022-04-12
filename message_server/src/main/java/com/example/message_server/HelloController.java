@@ -33,15 +33,21 @@ public class HelloController implements Initializable{
     @FXML
     private VBox vbox_messages;
 
+    private Server server;
+
     @Override
     public void initialize(URL location, ResourceBundle resources){
-        Server server = createServer();
+
+        server = createServer();
+
+        server.receiveMessageFromClient(vbox_messages);
+
         //
         vbox_messages.heightProperty().addListener((ObservableValue<? extends Number> observableValue, Number oldValue, Number newValue)->{
                 sp.setVvalue((double) newValue );
         });
         //runs on separate thread
-        server.receiveMessageFromClient(vbox_messages);
+
         //to display message on vbox from text field
         send_btn.setOnAction(event-> {
             //get text from textField
@@ -66,8 +72,11 @@ public class HelloController implements Initializable{
                 //appending hbox to vbox
                 vbox_messages.getChildren().add(hbox);
 
-                //sending message to client
+
                 server.sendMessageToClient(messageToSend);
+
+
+                //sending message to client
                 text_message.clear();
             }
         });

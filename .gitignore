@@ -1,2 +1,4 @@
 message_server/.idea
 message_server/target
+message_client/.idea
+message_client/target
