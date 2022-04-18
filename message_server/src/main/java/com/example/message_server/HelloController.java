@@ -38,9 +38,12 @@ public class HelloController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources){
 
-        server = createServer();
+        new Thread(()->{
+            server = createServer();
+        }).start();
 
-        server.receiveMessageFromClient(vbox_messages);
+        if(server!=null)
+            server.receiveMessageFromClient(vbox_messages);
 
         //
         vbox_messages.heightProperty().addListener((ObservableValue<? extends Number> observableValue, Number oldValue, Number newValue)->{
@@ -72,8 +75,8 @@ public class HelloController implements Initializable{
                 //appending hbox to vbox
                 vbox_messages.getChildren().add(hbox);
 
-
-                server.sendMessageToClient(messageToSend);
+                if(server!=null)
+                    server.sendMessageToClient(messageToSend);
 
 
                 //sending message to client
