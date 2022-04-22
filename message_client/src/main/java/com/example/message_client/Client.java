@@ -19,6 +19,7 @@ public class Client {
         }
 
     }
+    //closes socket connection , bufferedReader and bufferedWriter all at once
     public void closeAll(Socket socket,BufferedReader bufferedReader,BufferedWriter bufferedWriter){
         try {
             if(bufferedReader!=null){
@@ -34,6 +35,7 @@ public class Client {
             e.printStackTrace();
         }
     }
+    //writes messages to socket outputstream
     public void sendMessageToServer(String messageToServer){
         try{
             bufferedWriter.write(messageToServer);
@@ -45,12 +47,14 @@ public class Client {
         }
 
     }
+    // reads messages from socket inputStream
     public void receiveMessageFromServer(VBox vbox){
+        //blocking operation, waits for message to receive, so we run it on separate thread
         new Thread(()->{
             while(socket.isConnected()){
                 try{
                     String messageFromServer = bufferedReader.readLine();
-                    HelloController.addLabel(messageFromServer,vbox);
+                    ClientViewController.addLabel(messageFromServer,vbox);
                 }catch(IOException e){
                     e.printStackTrace();
                     System.out.println("Error receiving message from client");
@@ -60,4 +64,5 @@ public class Client {
             }
         }).start();
     }
+
 }

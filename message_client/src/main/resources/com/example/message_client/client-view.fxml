@@ -6,7 +6,7 @@
 <?import javafx.scene.control.Button?>
 <?import java.net.URL?>
 <AnchorPane fx:id="gui" prefHeight="400" prefWidth="478"
-            xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="com.example.message_client.HelloController">
+            xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="com.example.message_client.ClientViewController">
     <children>
         <Button fx:id="send_btn" layoutX="399.0" layoutY="350"
                 prefHeight="25" prefWidth="62.0"
@@ -21,7 +21,7 @@
                 </VBox>
             </content>
         </ScrollPane>
-        <Label layoutX="222.0" layoutY="27.0" text="Client">
+        <Label fx:id="user_name" layoutX="222.0" layoutY="27.0" text="Client">
 
         </Label>
     </children>

@@ -8,11 +8,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class App extends Application {
+public class ServerApp extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         //fxml files
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("login-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(ServerApp.class.getResource("login-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(),478,400);
 
         Image icon = new Image("https://cdn-icons-png.flaticon.com/512/1041/1041916.png");

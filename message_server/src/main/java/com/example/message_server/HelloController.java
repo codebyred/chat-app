@@ -38,9 +38,9 @@ public class HelloController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources){
 
-        new Thread(()->{
-            server = createServer();
-        }).start();
+
+        createServer();
+
 
         if(server!=null)
             server.receiveMessageFromClient(vbox_messages);
@@ -84,16 +84,16 @@ public class HelloController implements Initializable{
             }
         });
     }
-    public static Server createServer(){
+    public void createServer(){
         try {
-            Server server = new Server(new ServerSocket(3000));
+            this.server = new Server(new ServerSocket(3000));
             System.out.println("Server started listening on port 3000");
-            return server;
+
         }catch (IOException e){
             e.printStackTrace();
             System.out.println("error creating server");
         }
-        return null;
+
     }
     //method for displaying client message to gui
     public static void addLabel(String messageFromClient,VBox vbox){

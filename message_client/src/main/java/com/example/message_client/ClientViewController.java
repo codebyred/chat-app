@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -14,14 +15,14 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
+import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class HelloController implements Initializable {
+public class ClientViewController implements Initializable {
     @FXML
     private Button send_btn;
     @FXML
@@ -30,21 +31,25 @@ public class HelloController implements Initializable {
     private ScrollPane sp;
     @FXML
     private VBox vbox_messages;
+    @FXML
+    private Label user_name;
 
     private Client client;
 
     @Override
     public void initialize(URL location, ResourceBundle resources){
-        try{
-            this.client = new Client(new Socket("localhost",3000));
-        }catch (IOException e){
-            System.out.println("Error connecting to the server");
-            e.printStackTrace();
-        }
+        //connect to server
+        createClient();
+
+        //vbox increases vertically when hbox is added
         vbox_messages.heightProperty().addListener((ObservableValue<? extends Number> observableValue, Number oldValue, Number newValue)->{
+            //increases scrollpane height
             sp.setVvalue((double) newValue );
         });
-        client.receiveMessageFromServer(vbox_messages);
+        if(client!=null)
+            client.receiveMessageFromServer(vbox_messages);
+
+        // to send message to server and display the sent message in gui
         send_btn.setOnAction(event-> {
             //get text from textField
             String messageToSend = text_message.getText();
@@ -69,13 +74,15 @@ public class HelloController implements Initializable {
                 vbox_messages.getChildren().add(hbox);
 
                 //sending message to client
-                client.sendMessageToServer(messageToSend);
+                if(client!=null)
+                    client.sendMessageToServer(messageToSend);
+
                 text_message.clear();
             }
         });
 
     }
-
+    // add messages received from server to gui
     public static void addLabel(String messageFromServer,VBox vbox){
 
         HBox hbox = new HBox();
@@ -89,8 +96,23 @@ public class HelloController implements Initializable {
         textFlow.setPadding(new Insets(5,10,5,10));
         hbox.getChildren().add(textFlow);
 
+        //updates gui on a separate thread
         Platform.runLater(()->{
             vbox.getChildren().add(hbox);
         });
+    }
+    public void createClient(){
+        try{
+            this.client = new Client(new Socket("localhost",3000));
+            System.out.println("Connection established on port 3000");
+
+        }catch (IOException e){
+            System.out.println("Error connecting to the server");
+            e.printStackTrace();
+        }
+
+    }
+    public void setUsername(String username){
+        this.user_name.setText(username);
     }
 }

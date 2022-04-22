@@ -75,7 +75,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.example.message_server/com.example.message_server.App
+                            <mainClass>com.example.message_server/com.example.message_server.ServerApp
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
