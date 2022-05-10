@@ -33,7 +33,7 @@ public class ServerApp {
     //close server socket
     public void closeServerSocket(){
         try{
-            if(serverSocket == null)
+            if(serverSocket != null)
                 serverSocket.close();
         }catch(IOException e){
 

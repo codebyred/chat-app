@@ -67,7 +67,7 @@ public class Server {
             while(socket.isConnected()){
                 try{
                     String messageFromClient = bufferedReader.readLine();
-                    HelloController.addLabel(messageFromClient,vbox);
+                    ServerViewController.addLabel(messageFromClient,vbox);
                 }catch(IOException e){
                     e.printStackTrace();
                     System.out.println("Error receiving message from client");

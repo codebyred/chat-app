@@ -11,6 +11,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
@@ -23,7 +24,7 @@ import java.net.ServerSocket;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class HelloController implements Initializable{
+public class ServerViewController implements Initializable{
     @FXML
     private Button send_btn;
     @FXML
@@ -32,6 +33,8 @@ public class HelloController implements Initializable{
     private ScrollPane sp;
     @FXML
     private VBox vbox_messages;
+    @FXML
+    private Label user_name;
 
     private Server server;
 
@@ -112,6 +115,9 @@ public class HelloController implements Initializable{
         Platform.runLater(()->{
             vbox.getChildren().add(hbox);
         });
+    }
+    public void setUsername(String username){
+        this.user_name.setText(username);
     }
 
 }

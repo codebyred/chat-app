@@ -26,6 +26,6 @@
         </Label>
     </children>
     <stylesheets>
-        <URL value="@style-view.css" />
+        <URL value="@client-style.css" />
     </stylesheets>
 </AnchorPane>

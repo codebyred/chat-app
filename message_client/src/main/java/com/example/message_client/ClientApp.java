@@ -12,12 +12,12 @@ public class ClientApp extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         //fxml files
-        FXMLLoader fxmlLoader = new FXMLLoader(ClientApp.class.getResource("login-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(ClientApp.class.getResource("list-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(),478,400);
 
         Image icon = new Image("https://cdn-icons-png.flaticon.com/512/1041/1041916.png");
         stage.getIcons().add(icon);
-        stage.setTitle("Server");
+        stage.setTitle("Client-2");
         stage.setScene(scene);
         stage.setResizable(false);
 
