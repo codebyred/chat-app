@@ -1,0 +1,15 @@
+#pane{
+    -fx-background-image: url("https://www.freevector.com/uploads/vector/preview/30349/Abstract_background_vector_1.jpg");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 900 506;
+    -fx-background-position: center center;
+    -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);
+
+}
+#paneB{
+    -fx-background-image: url("https://img.freepik.com/free-vector/flat-geometric-background_23-2148957201.jpg?w=2000");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 900 506;
+    -fx-background-position: center center;
+    -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0)
+}

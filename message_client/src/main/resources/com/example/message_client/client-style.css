@@ -1,5 +1,9 @@
 #gui{
-
+    -fx-background-image: url("https://img.freepik.com/free-vector/white-abstract-background_23-2148810113.jpg");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 900 506;
+    -fx-background-position: center center;
+    -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);
 }
 #send_btn{
     -fx-text-fill: white;

@@ -1,5 +1,9 @@
 #gui{
-
+    -fx-background-image: url("https://img.freepik.com/free-vector/white-abstract-background_23-2148810113.jpg");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 900 506;
+    -fx-background-position: center center;
+    -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);
 }
 #send_btn{
     -fx-text-fill: white;
@@ -22,6 +26,28 @@
 #sp:vertical .thumb{
     -fx-background-color: black;
 }
-#sp{
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:horizontal, .scroll-bar:vertical{
     -fx-background-color:transparent;
+}
+
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color: grey;
+    -fx-background-radius: 5em;
 }

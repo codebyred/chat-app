@@ -17,7 +17,7 @@ public class ClientApp extends Application {
 
         Image icon = new Image("https://cdn-icons-png.flaticon.com/512/1041/1041916.png");
         stage.getIcons().add(icon);
-        stage.setTitle("Client-2");
+        stage.setTitle("Client");
         stage.setScene(scene);
         stage.setResizable(false);
 

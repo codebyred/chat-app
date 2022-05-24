@@ -9,7 +9,8 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
-<AnchorPane prefHeight="400.0" prefWidth="478" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.message_server.LoginController">
+<?import java.net.URL?>
+<AnchorPane fx:id="pane" prefHeight="400.0" prefWidth="478" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.message_server.LoginController">
     <children>
         <TextField fx:id="user_name" layoutX="123.0" layoutY="166.0" prefHeight="34.0" prefWidth="233.0" promptText="Username" style="-fx-background-color: #455a64;" styleClass="txtFont">
             <font>
@@ -37,5 +38,7 @@
             </image>
         </ImageView>
     </children>
-
+    <stylesheets>
+        <URL value="@loginRegister-style.css" />
+    </stylesheets>
 </AnchorPane>
